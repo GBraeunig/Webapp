@@ -8,6 +8,7 @@
               AggroVoc items
             </h2>
             <hr>
+            <div id="scrollArea">
             <div class="subjectlistitems">
               <uib-accordion close-others="oneAtATime">
                 <uib-accordion-group heading="{{structData.parent.name}}" is-open="true">
@@ -37,6 +38,8 @@
                 </ul>
               </uib-accordion-group>
             </uib-accordion>
+          </div>
+          <a ng-click="gotoHighlight()">Go to Highlight</a>
           </div>
           <hr>
           <form name="languageForm">

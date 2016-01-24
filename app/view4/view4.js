@@ -5,22 +5,31 @@ angular.module('myApp.view4', ['ngRoute'])
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view4', {
     templateUrl: 'view4/view4.html',
-    controller: 'View4Ctrl'
+    controller: 'view4Ctrl'
   });
 }])
 
-.controller('View4Ctrl', ["$scope", "$http", function($scope, $http) {
+.controller('view4Ctrl', ["$scope", "$http",'$location', '$anchorScroll', function($scope, $http, $location, $anchorScroll) {
   $scope.language = {
     selected: "en",
     availableOptions: [{name:"deutsch",short: "de"},{name:"english", short :"en"}]
   };
+
+    $scope.gotoHighlight = function() {
+      $timeout(function(){
+        $location.hash("highlight");
+        console.log("hit!");
+        $anchorScroll();
+    });
+    };
+
   $scope.getlang = function(){
     lang = $scope.language.selected.short;
     console.log("click");
     console.log($scope.language.selected.short);
-  }
+  };
   $scope.updatetree  = function(){
-    $http.get("data/skos_subjects.json").success(function(data){
+    $http.get("data/skos_groups.json").success(function(data){
       lang = $scope.language.selected.short;
       console.log("click");
       console.log($scope.language.selected.short);
@@ -32,9 +41,9 @@ angular.module('myApp.view4', ['ngRoute'])
       //console.log(structData);
       $scope.structData = structData;
     });
-  }
+  };
   //get links to GLUES Datasets
-  $http.get("data/output_export_skos-xl_subjects.rdf.json").success(function(links){
+  $http.get("data/output_export_skos-xl_groups.rdf.json").success(function(links){
     $scope.links = {
       repeatSelect: null,
       availableOptions: links.data,
