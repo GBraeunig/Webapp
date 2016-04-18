@@ -24,8 +24,11 @@ To start type “npm start” from terminal. Needs Node.js.
 Javascript Libraries
 
 •	jQuery, https://jquery.org/license/ - MIT License
+
 •	angular.js – MIT License
+
 •	Bootstrap – MIT License
+
 •	ui Bootstrap – MIT Licens
 
 License
