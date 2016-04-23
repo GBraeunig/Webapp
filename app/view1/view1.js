@@ -56,4 +56,13 @@ angular.module('myApp.view1', ['ngRoute'])
     $scope.agroLink = getAgroLink(selection,$scope.links.availableOptions);
     window.open($scope.agroLink);
   };
+
+  //add Dataitem to GLUES Dataset links
+  $scope.addItem = function(){
+
+    //add logic to add input to GLUES datasets
+    //needs URI of keyword and Input from Form
+    console.log("Click!");
+    $scope.datasets.push(transformToGLI($scope.newItem.uri,$scope.newItem.title,$scope.newItem.subjects));
+  }
 }]);

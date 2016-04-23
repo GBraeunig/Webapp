@@ -81,7 +81,24 @@
         <p class="keyselection selecteditm">{{links.repeatSelect}}</p><br/>
 
       </div>
+      <hr>
+      <div>
+        <form novalidate>
+          Dataset URI:<br>
+          <input type="text" ng-model="newItem.uri"><br>
+          Dataset Title:<br>
+          <input type="text" ng-model="newItem.title">
+          Dataset subjects:<br>
+          <input type="text" ng-model="newItem.subjects">
+          <br><br>
+          <button ng-click="addItem()">Add Item</button>
+        </form>
+        <p>Uri = {{uri}}</p>
+        <p>title = {{title}}</p>
+        <p>subjects = {{subjects}}</p>
       </div>
+      </div>
+
     </div>
   </div>
   <div class="publist">
