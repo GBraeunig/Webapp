@@ -59,10 +59,17 @@ angular.module('myApp.view1', ['ngRoute'])
 
   //add Dataitem to GLUES Dataset links
   $scope.addItem = function(){
-
     //add logic to add input to GLUES datasets
     //needs URI of keyword and Input from Form
     console.log("Click!");
     $scope.datasets.push(transformToGLI($scope.newItem.uri,$scope.newItem.title,$scope.newItem.subjects));
+  }
+
+  //select keyword from hierachy
+  $scope.selectKeywordFromHierachy = function (ID){
+    console.log(ID.currentTarget);
+    var keywordID = $(ID.currentTarget).parent().parent().parent()[0].id;
+    console.log(keywordID);
+    $scope.links.repeatSelect = keywordID
   }
 }]);

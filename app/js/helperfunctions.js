@@ -51,3 +51,7 @@ var transformToGLI = function(URI,title,Subjects){
 
   return object;
 }
+
+var getURIFromhierachy = function(){
+
+}
