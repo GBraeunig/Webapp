@@ -71,26 +71,19 @@
           linked keywords from GLUES database
         </p>
         <hr>
-        <form name="myForm">
+        <form name="keywordForm">
           <label for="keywordSelect"> select keyword: </label>
-          <select class="keywordselection" name="keywordSelect" id="repeatSelect" ng-model="links.repeatSelect">
-            <option ng-repeat="option in links.availableOptions" value="{{option.Name}}">{{option.Name}}</option>
+          <select class="keywordselection" name="keywordSelect" id="repeatSelect" ng-model="links.repeatSelect" ng-change ="addHighlight()">
+            <option ng-repeat="option in links.availableOptions" value="{{option.ID}}">{{option.Name}}</option>
           </select>
         </form>
         <hr>
         <div class="keywordselection">
 
-        <p>
-          <a class="btn btn-info btn-lg showdatasets" ng-click="getSelection()">
-            <span class="glyphicon glyphicon-info-sign" ></span> Show Datasets
-          </a>
-        </p>
-        <p>
           <a class="btn btn-info btn-lg" ng-click="goToAgrovoc()">
             <span class="glyphicon glyphicon-info-sign" ></span> Go to AgroVoc entry
           </a>
         </p>
-        <p class="keyselection selecteditm">{{links.repeatSelect}}</p><br/>
 
       </div>
       <hr>
@@ -122,21 +115,25 @@
           </h2>
           <hr>
           <div class="linklistitems">
-            <ul class="list-unstyled">
-              <li class="linkTitle" ng-repeat="opt in datasets |filter :{title: '!!'}">
-
-                  <a ng-if="opt.title != null" href="{{opt.ID}}">{{opt.title}}</a>
-                  <span>
-                  <ul class="list-inline">
-                    <h6>Subjects: </h6>
-                    <li ng-repeat="subs in opt.subjects  ">
-                      <p>{{subs+','}}</p>
-                    </ul>
-                  </span>
-                <hr>
+            <ul class = "list-unstyled">
+              <li class ="linkitems" ng-repeat = "item in links.availableOptions | filter: filterExpression">
+                {{item.Name}}
+                <ul class="list-unstyled">
+                  <li class="linkTitle" ng-repeat="opt in item.Links |filter :{title: '!!'}">
+                      <a ng-if="opt.title != null" href="{{opt.ID}}">{{opt.title}}</a>
+                      <span>
+                      <ul class="list-inline">
+                        <h6>Subjects: </h6>
+                        <li ng-repeat="subs in opt.subjects  ">
+                          <p>{{subs+','}}</p>
+                        </li>
+                      </ul>
+                    </span>
+                    <hr>
+                  </li>
+                </ul>
               </li>
             </ul>
-
           </div>
         </div>
       </div>
