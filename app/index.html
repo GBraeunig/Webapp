@@ -7,6 +7,7 @@
 <!-- Mainpage serves as hub for all Agrovoc excerpts which are partial views -->
 
 <head>
+   <link rel="shortcut icon" type="image/x-icon" href="img/GlUES.ico" />
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Linked Data Browser </title>
@@ -22,13 +23,16 @@
 </head>
 <!-- Navbar to select the excerpts of AgroVoc -->
 <body>
+
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
-        <h1>
+          <img class="headerIcon" src="img/landmanagement.jpg" alt="Icon" style="float:left; width:84px;height:64px;">
+        <h1 class="title">
           Linked Data Browser
         </h1>
         <ul class= "nav navbar-nav">
+          <li><p class="excerptsHeader">Excerpts from AgroVoc:</p> </li>
           <li><a href="#/subjects">subjects</a></li>
           <li><a href="#/activities">activities</a></li>
           <li><a href="#/entities">entities</a></li>
@@ -45,7 +49,10 @@
   <footer class="footer">
     <div class="navbar navbar-inverse navbar-fixed-bottom">
       <div class="container">
-        Linked Data Browser: v<span app-version></span>
+        <ul class="nav navbar-nav ">
+          <li>Linked Data Browser: v<span app-version></span></li>
+          <li><span>Contact: <a href="http://nachhaltiges-landmanagement.de/de/wissenschaftliche-begleitung-glues/">GLUES Team</a></span></li>
+        </ul>
       </div>
     </div>
   </footer>
